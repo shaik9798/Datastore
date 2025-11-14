@@ -6,4 +6,5 @@ pipeline {
         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/shaik9798/Datastore.git']])
       }
     }
+ }
 }
