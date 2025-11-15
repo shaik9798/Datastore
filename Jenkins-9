@@ -87,11 +87,6 @@ stage("Logging in & Pushing Docker image") {
         """
       }
     }
- stage("Deployment Acceptance") {
-      steps {
-        input 'Trigger Down Stream Job'
-      }
-    }
-  }
  }
 }
+
