@@ -63,6 +63,21 @@ stage("Docker Image Tag") {
         """
     }
 }
+stage("Logging in & Pushing Docker image") {
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+            sh """
+                echo "-------- Logging To DockerHub --------"
+                docker login -u $USER -p $PASS
+                echo "-------- DockerHub Login Successful --------"
+
+                echo "-------- Pushing Docker Image To DockerHub --------"
+                docker push riyazshaik9/datastore-image:${App_Version}
+                echo "-------- Docker Image Pushed Successfully --------"
+            """
+        }
+    }
+}
 
  }
 }
