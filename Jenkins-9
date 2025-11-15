@@ -54,5 +54,15 @@ stage("Docker Image Scan") {
         """
       }
     }
+stage("Docker Image Tag") {
+    steps {
+        sh """
+          echo "-------- Tagging Docker Image --------"
+          docker tag datastore:${App_Version} riyazshaik9/datastore-image:${App_Version}
+          echo "-------- Tagging Docker Image Completed --------"
+        """
+    }
+}
+
  }
 }
